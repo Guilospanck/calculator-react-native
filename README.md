@@ -13,6 +13,12 @@
 ```
 react-native init [name-of-the-project]
 ```
+- To run:
+``` 
+cd [name-of-the-project]
+react-native run-android // if you are using Android
+react-native run-ios // if you are using IOS
+```
 
 ### Changing the name of the App (if you change of idea after initializing it)
  - ```git branch rename-app ``` and ``` git checkout rename-app ``` to create a new branch if something goes wrong;
@@ -80,3 +86,53 @@ Now back to main app cd ../
 </resources>
   ```
 > The item android:statusBarColor it is used in case if you have defined some <StatusBar barStyle="light-content" backgroundColor="#7159C1"></StatusBar> inside your <b>App.js</b> file. It is necessary because the js file is read <i>after</i> the styles.xml file, so, if you do not set this up here, when the splash screens appear, the status bar will have a different color than the color when the app is already running.
+
+### Building the release of the App
+- Generate a release (upload) key:
+```
+cd C:\Program Files\Java\jdkx.x.x_x\bin   // go to your java folder
+keytool -genkey -v -keystore my-release-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000
+```
+> When you run the command above, it will request to define somethings like Name, organization, city, state, country and Store and key passwords. 
+- The keystore will be saved inside the bin java folder. Copy it and paste inside the ``` [yourProjectFolder]/android/app ``` directory;
+- Edit the file ``` ~/.gradle/gradle.properties ``` or ``` android/gradle.properties ```, and add the following (replace ***** with the correct keystore password, alias and key password)
+```
+MYAPP_UPLOAD_STORE_FILE=my-upload-key.keystore
+MYAPP_UPLOAD_KEY_ALIAS=my-key-alias
+MYAPP_UPLOAD_STORE_PASSWORD=*****
+MYAPP_UPLOAD_KEY_PASSWORD=*****
+```
+- Edit ```[yourProjectFolder]/android/app/build.gradle ``` and add the following:
+```
+...
+android {
+    ...
+    defaultConfig { ... }
+    signingConfigs {
+        release {
+            if (project.hasProperty('MYAPP_RELEASE_STORE_FILE')) {
+                storeFile file(MYAPP_RELEASE_STORE_FILE)
+                storePassword MYAPP_RELEASE_STORE_PASSWORD
+                keyAlias MYAPP_RELEASE_KEY_ALIAS
+                keyPassword MYAPP_RELEASE_KEY_PASSWORD
+            }
+        }
+      }
+    }
+    buildTypes {
+        release {
+            ...
+            signingConfig signingConfigs.release
+        }
+    }
+}
+...
+
+```
+- Now, generate the releasing APK:
+```
+cd android
+./gradlew bundleRelease //to generate .aab   in [yourProjectFolder]/android/app/build/outputs/bundle/release/
+./gradlew assembleRelease  //to generate .apk  in [yourProjectFolder]/android/app/build/outputs/apk/release/
+```
+- To test in your device, run ``` react-native run-android --variant=release ```
