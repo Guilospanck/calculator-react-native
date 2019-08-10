@@ -4,6 +4,8 @@
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
 ![GitHub](https://img.shields.io/github/license/Guilospanck/HowToDevelopers)
 
+# Below there is some instructions for all react-native apps and I did put this information here to help me remember some processes in the future. I hope that it helps me and anyone else.
+
 ## Instalation -> Tutorial for all React Native apps
 <b>It is better to follow the React Native CLI approach</b>;
 - If you don't have React Native installed yet, you must follow this [tutorial](https://facebook.github.io/react-native/docs/getting-started);  
