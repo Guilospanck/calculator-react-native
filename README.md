@@ -19,7 +19,7 @@ cd [name-of-the-project]
 react-native run-android // if you are using Android
 react-native run-ios // if you are using IOS
 ```
-> Tips: if you running on a real android device (via adb debugger), you can use the cmd commands ```adb shell input text "RR"``` to reload the app and ```adb shell input keyevent 82``` to open the developer menu.
+> Tips: if you are running on a real android device (via adb debugger), you can use the cmd commands ```adb shell input text "RR"``` to reload the app and ```adb shell input keyevent 82``` to open the developer menu.
 
 ### Changing the name of the App (if you change of idea after initializing it)
  - ```git branch rename-app ``` and ``` git checkout rename-app ``` to create a new branch if something goes wrong;
