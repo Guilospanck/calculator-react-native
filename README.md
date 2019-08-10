@@ -59,3 +59,22 @@ Now back to main app cd ../
   
   ```
   > Explanations about the code above: the first item draws the background of our splash screen using the color tag defined in the colors.xml; in the second item we are defining our icon, which is inside the drawable folder, to have 200dp x 200dp and positioning it in the center of the screen ( using gravity center the icon will be in the center no matter what the size of the screen )
+  - Now we need to the Android to see this file as the splash screen. Go to ``` yourProjectFolder/android/app/src/main/res/values ``` and edit the styles.xml to:
+  ``` 
+  <resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="android:textColor">#000000</item>
+        <item name="android:windowBackground">
+            @drawable/background_splash
+        </item>
+        <item name="android:statusBarColor">
+            @color/primary
+        </item>
+    </style>
+
+</resources>
+  ```
+> The item android:statusBarColor it is used in case if you have defined some <StatusBar barStyle="light-content" backgroundColor="#7159C1"></StatusBar> inside your <b>App.js</b> file. It is necessary because the js file is read <i>after</i> the styles.xml file, so, if you do not set this up here, when the splash screens appear, the status bar will have a different color than the color when the app is already running.
