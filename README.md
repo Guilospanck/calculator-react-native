@@ -43,3 +43,19 @@ Now back to main app cd ../
    <color name="primary">#7159C1</color>
   </resources>
   ```
+  > The colors.xml file is used to declare what color will be the background of our splash screen. Inside the tag <color></color> you put the code of the color you want.
+  - Now go to ``` yourProjectFolder/android/app/src/main/res/drawable ``` and create a new file <i>background_splash.xml</i>, which is where we are going to definitively develop our splash screen, and put the code below:
+  ```
+  <?xml version="1.0" enconding="utf-8" ?>
+  <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@color/primary"  />
+    <item 
+     android:width="200dp"
+     android:height="200dp"
+     android:drawable="@drawable/icon"
+     android:gravity="center"    
+    />   
+  </layer-list>
+  
+  ```
+  > Explanations about the code above: the first item draws the background of our splash screen using the color tag defined in the colors.xml; in the second item we are defining our icon, which is inside the drawable folder, to have 200dp x 200dp and positioning it in the center of the screen ( using gravity center the icon will be in the center no matter what the size of the screen )
