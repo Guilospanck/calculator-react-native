@@ -89,6 +89,7 @@ Now back to main app cd ../
 > The item android:statusBarColor it is used in case if you have defined some <StatusBar barStyle="light-content" backgroundColor="#7159C1"></StatusBar> inside your <b>App.js</b> file. It is necessary because the js file is read <i>after</i> the styles.xml file, so, if you do not set this up here, when the splash screens appear, the status bar will have a different color than the color when the app is already running.
 
 ### Building the release of the App
+- Open CMD as Administrator;
 - Generate a release (upload) key:
 ```
 cd C:\Program Files\Java\jdkx.x.x_x\bin   // go to your java folder
