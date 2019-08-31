@@ -2,7 +2,7 @@
  A simple calculator made using React Native
  
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
-![GitHub](https://img.shields.io/github/license/Guilospanck/HowToDevelopers)
+![GitHub](https://img.shields.io/github/license/Guilospanck/calculator-react-native)
 
 # Below there is some instructions for all react-native apps and I did put this information here to help me remember some processes in the future. I hope that it helps me and anyone else.
 
